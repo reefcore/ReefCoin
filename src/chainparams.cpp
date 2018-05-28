@@ -166,6 +166,13 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("9b16e2d18fb3b14973933a16c5b64f7790d8cd6e17e60a0086f456915ab8152b"));
         //vSeeds.push_back(CDNSSeedData("beardseed2", "dnsseeder1.bunkens.be"));
         //vSeeds.push_back(CDNSSeedData("beardseed1", "dnsseeder2.bunkens.be"));
+        vSeeds.push_back(CDNSSeedData("23.95.197.35", "23.95.197.35"));
+        vSeeds.push_back(CDNSSeedData("149.28.65.238", "149.28.65.238"));
+        vSeeds.push_back(CDNSSeedData("198.23.228.235", "198.23.228.235"));
+	vSeeds.push_back(CDNSSeedData("107.174.138.108", "107.174.138.108"));
+	vSeeds.push_back(CDNSSeedData("107.174.47.174", "107.174.47.174"));
+
+
         // Reef addresses start with 'R'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
         // Reef script addresses start with '7'
@@ -179,7 +186,7 @@ public:
         // Reef BIP44 coin type is '5'
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x05).convert_to_container<std::vector<unsigned char> >();
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
