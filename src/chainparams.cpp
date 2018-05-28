@@ -432,7 +432,7 @@ CScript CChainParams::GetFoundersRewardScript() const {
 if(Params().strNetworkID=="test"){
      address = CBitcoinAddress("RjBesHbKrQH9hpkxFVmiWGzgyTbjBCxPng");
 }else {
-     address = CBitcoinAddress("RRC9f8j1UQ423o1YSvrdYGg1yGsVedy4QY");
+     address = CBitcoinAddress("RYEqYQU9nmiDQd9AKKNjW9QszeonhEpazG");
 }
 // if (!address.IsValid())
 //     throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Reef address");
