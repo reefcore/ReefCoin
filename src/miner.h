@@ -19,7 +19,7 @@ namespace Consensus { struct Params; };
 
 static const bool DEFAULT_GENERATE = false;
 static const int DEFAULT_GENERATE_THREADS = 1;
-
+static bool FOUNDER_REWARD = false;
 static const bool DEFAULT_PRINTPRIORITY = false;
 
 struct CBlockTemplate

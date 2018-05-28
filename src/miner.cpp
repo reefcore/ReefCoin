@@ -280,14 +280,41 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
 
         // NOTE: unlike in bitcoin, we need to pass PREVIOUS block height here
         CAmount blockReward = nFees + GetBlockSubsidy(pindexPrev->nBits, pindexPrev->nHeight, Params().GetConsensus());
-
         // Compute regular coinbase transaction.
         txNew.vout[0].nValue = blockReward;
         txNew.vin[0].scriptSig = CScript() << nHeight << OP_0;
+    FOUNDER_REWARD = false;
+
+
+//pay founders reward
+        //if ((nHeight > 0) && (nHeight <= Params().GetConsensus().GetLastFoundersRewardBlockHeight())) {
+        if(Params().NetworkIDString() =="test") {
+            printf("Testnet: Block %d",pindexPrev->nHeight);
+            printf("Testnet: Block reward %d",blockReward);
+        }
+        if (blockReward > 0) {
+            if(Params().NetworkIDString() =="test") {
+                printf("Testnet: Founders reward applied");
+            }
+            // Founders reward is 10% of the block subsidy
+            auto vFoundersReward = GetFoundersReward(pindexPrev->nHeight);
+            // Take some reward away from us
+            txNew.vout[0].nValue -= vFoundersReward;
+	    if (vFoundersReward > 0) {
+		FOUNDER_REWARD = true;
+		}
+            // And give it to the founders
+            txNew.vout.push_back(CTxOut(vFoundersReward, chainparams.GetFoundersRewardScript()));
+        }
+
+
+        // Compute regular coinbase transaction.
+//        txNew.vout[0].nValue = blockReward;
+  //      txNew.vin[0].scriptSig = CScript() << nHeight << OP_0;
 
         // Update coinbase transaction with additional info about masternode and governance payments,
         // get some info back to pass to getblocktemplate
-        FillBlockPayments(txNew, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock);
+        FillBlockPayments(txNew, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock, FOUNDER_REWARD);
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;

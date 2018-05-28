@@ -1745,7 +1745,86 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    if (nPrevHeight == 0) {
+   CAmount blockReward = 0;
+    CAmount nPOW = 5 * COIN;
+    // POW
+    //blockreward for testnet is 5000 always
+    if(Params().NetworkIDString() =="test"){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW;
+        return blockReward;
+    }
+    /*if (nPrevHeight== 0 && nPrevHeight <= 500){
+        nPOW = 0 * COIN;
+        blockReward = nPOW;
+    }
+    if (nPrevHeight > 500 && nPrevHeight <= 5000){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW;
+    }
+    if (nPrevHeight > 5000 && nPrevHeight <= 50000){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW * 0.85;
+
+    }*/
+if (nPrevHeight == 0)
+{
+	return 50 * COIN;
+}
+if (nPrevHeight == 15) {
+        return 16900000 * COIN; //premine
+        }
+    if (nPrevHeight > 1 && nPrevHeight <= 3600){
+        nPOW = 1 * COIN;
+        blockReward = nPOW;
+        }
+    if (nPrevHeight > 3600 && nPrevHeight <=3879){
+        nPOW = 5 * COIN;
+        blockReward = nPOW;
+        }
+    if (nPrevHeight > 3879 && nPrevHeight <= 5000) {
+        nPOW = 5000* COIN;
+        blockReward = nPOW;
+        }
+    if (nPrevHeight > 5000 && nPrevHeight <= 50000){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW * 0.85;
+    }
+    if (nPrevHeight > 50000 && nPrevHeight <= 500000){
+        nPOW =  4375 * COIN;
+        blockReward = nPOW * 0.75;
+    }
+    if (nPrevHeight > 500000 && nPrevHeight <= 1000000){
+        nPOW =  3750 * COIN;
+        blockReward = nPOW * 0.65;
+    }
+    if (nPrevHeight > 1000000 && nPrevHeight <= 3500000){
+        nPOW =  3125 * COIN;
+        blockReward = nPOW * 0.55;
+    }
+    if (nPrevHeight > 3500000 && nPrevHeight <= 5000000){
+        nPOW =  2500 * COIN;
+        blockReward = nPOW * 0.45;
+    }
+    if (nPrevHeight > 5000000 && nPrevHeight <= 7500000){
+        nPOW =  1875 * COIN;
+        blockReward = nPOW * 0.35;
+    }
+    if (nPrevHeight > 7500000 && nPrevHeight <= 10000000){
+        nPOW =  1250 * COIN;
+        blockReward = nPOW * 0.25;
+    }
+    if (nPrevHeight > 10000000 && nPrevHeight <= 12500000){
+        nPOW =  625 * COIN;
+        blockReward = nPOW * 0.15;
+    }
+    if (nPrevHeight > 12500000){
+        nPOW =  625 * COIN;
+        blockReward = nPOW * 0.05;
+    }
+
+    return blockReward;
+  /*  if (nPrevHeight == 0) {
         return 3400000 * COIN;
     }
     if (nPrevHeight < 800) {
@@ -1759,12 +1838,137 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
         nSubsidy -= nSubsidy * 0.25;
     }
 
-    return fSuperblockPartOnly ? 0 : nSubsidy;
+    return fSuperblockPartOnly ? 0 : nSubsidy; */
+}
+CAmount getblkreward(int nPrevHeight){
+   CAmount blockReward = 0;
+    CAmount nPOW = 5 * COIN;
+    // POW
+    //blockreward for testnet is 5000 always
+    if(Params().NetworkIDString() =="test"){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW;
+        return blockReward;
+    }
+ /*   if (nPrevHeight== 0 && nPrevHeight <= 500){
+        nPOW = 0 * COIN;
+        blockReward = nPOW;
+    }
+    if (nPrevHeight > 500 && nPrevHeight <= 5000){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW;
+    }
+    */
+if (nPrevHeight == 0) {
+	blockReward = 0;
+}
+if (nPrevHeight == 1) {
+        blockReward = 16900000; //premine
+        }
+    if (nPrevHeight > 1 && nPrevHeight <= 3600){
+        nPOW = 1 * COIN;
+        blockReward = nPOW;
+        }
+    if (nPrevHeight > 3600 && nPrevHeight <=3879){
+        nPOW = 5 * COIN;
+        blockReward = nPOW;
+        }
+    if (nPrevHeight > 3879 && nPrevHeight <= 5000) {
+        nPOW = 5000* COIN;
+        blockReward = nPOW;
+        }
+    if (nPrevHeight > 5000 && nPrevHeight <= 50000){
+        nPOW =  5000 * COIN;
+        blockReward = nPOW * 0.85;
+    }
+//if (nPrevHeight > 5000 && nPrevHeight <= 50000){
+  //      nPOW =  5000 * COIN;
+    //    blockReward = nPOW * 0.85;
+    //}
+    if (nPrevHeight > 50000 && nPrevHeight <= 500000){
+        nPOW =  4375 * COIN;
+        blockReward = nPOW * 0.75;
+    }
+    if (nPrevHeight > 500000 && nPrevHeight <= 1000000){
+        nPOW =  3750 * COIN;
+        blockReward = nPOW * 0.65;
+    }
+    if (nPrevHeight > 1000000 && nPrevHeight <= 3500000){
+        nPOW =  3125 * COIN;
+        blockReward = nPOW * 0.55;
+    }
+    if (nPrevHeight > 3500000 && nPrevHeight <= 5000000){
+        nPOW =  2500 * COIN;
+        blockReward = nPOW * 0.45;
+    }
+    if (nPrevHeight > 5000000 && nPrevHeight <= 7500000){
+        nPOW =  1875 * COIN;
+        blockReward = nPOW * 0.35;
+    }
+    if (nPrevHeight > 7500000 && nPrevHeight <= 10000000){
+        nPOW =  1250 * COIN;
+        blockReward = nPOW * 0.25;
+    }
+    if (nPrevHeight > 10000000 && nPrevHeight <= 12500000){
+        nPOW =  625 * COIN;
+        blockReward = nPOW * 0.15;
+    }
+    if (nPrevHeight > 12500000){
+        nPOW =  625 * COIN;
+        blockReward = nPOW * 0.05;
+    }
+
+    return blockReward;
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    return blockValue * 0.40;
+    //return blockValue * 0.40;
+
+    CAmount masterNodePayment = blockValue * 0.001;
+    if (nHeight > 5000 && nHeight < 50001){
+
+        masterNodePayment = blockValue * 0.15;
+    }
+    if (nHeight > 50000 && nHeight < 500001){
+
+        masterNodePayment = blockValue * 0.25;
+    }
+    if (nHeight > 500000 && nHeight < 1000001){
+
+        masterNodePayment = blockValue * 0.35;
+    }
+    if (nHeight > 1000000 && nHeight < 3500001){
+
+        masterNodePayment = blockValue * 0.45;
+    }
+    if (nHeight > 3500000 && nHeight < 5000001){
+
+        masterNodePayment = blockValue * 0.55;
+    }
+    if (nHeight > 5000000 && nHeight < 7500001){
+
+        masterNodePayment = blockValue * 0.65;
+    }
+    if (nHeight > 7500000 && nHeight < 10000001){
+
+        masterNodePayment = blockValue * 0.75;
+    }
+    if (nHeight > 10000000 && nHeight < 12500001){
+
+        masterNodePayment = blockValue * 0.85;
+    }
+    if (nHeight > 12500000){
+
+        masterNodePayment = blockValue * 0.95;
+    }
+    return masterNodePayment;
+}
+CAmount GetFoundersReward(int nHeight)
+{
+
+    CAmount blockValue = getblkreward(nHeight);
+    return (blockValue >0) ? blockValue * 0.10 : 0;
 }
 
 bool IsInitialBlockDownload()

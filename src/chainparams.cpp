@@ -6,7 +6,7 @@
 
 #include "chainparams.h"
 #include "consensus/merkle.h"
-
+#include "base58.h"
 #include "tinyformat.h"
 #include "util.h"
 #include "utilstrencodings.h"
@@ -46,7 +46,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "4/21/2018 iodev regrets the day he scammed the EDEN community";
+    const char* pszTimestamp = "hello reef buddies";
     const CScript genesisOutputScript = CScript() << ParseHex("040a3ada5ba6280b99f49a92ba47221e6a72af844ec49d0c8bbdae1ec09a4c79b22e42eefe670ae04490556f91780eb57de76493d020c91d0c421c2fa052b28a2b") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -115,11 +115,11 @@ public:
         pchMessageStart[2] = 0x9c;
         pchMessageStart[3] = 0xd5;
         vAlertPubKey = ParseHex("044513449073a8efe161dc42e7c07c61c4a8f59297dc8ebacbc2f77345084d058399022bc6a0db0719739f183d14b04893fb78c3b9bd9a3f88ecf8ea06adae99fe");
-        nDefaultPort = 13058;
+        nDefaultPort = 9058;
         nMaxTipAge = 1.5 * 60 * 60; // ~36 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1523764584, 360505, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1527532356, 637040, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
    /*
 	 //////////////
@@ -162,10 +162,10 @@ public:
                 }
                 std::cout << std::string("Finished calculating Mainnet Genesis Block:\n");
      */   
-        assert(consensus.hashGenesisBlock == uint256S("00000a8144601b679fc258d5aba342076e89e81573676eda958f75ff0a0a8561"));
-        assert(genesis.hashMerkleRoot == uint256S("b45ba0de34d2c0f9440de4f7bbbda79989a0d41757f5e145aab55cf386d15e80"));
-        vSeeds.push_back(CDNSSeedData("beardseed2", "dnsseeder1.bunkens.be"));
-        vSeeds.push_back(CDNSSeedData("beardseed1", "dnsseeder2.bunkens.be"));
+        assert(consensus.hashGenesisBlock == uint256S("0000087b582c43136586c1cbe4ad35461c5d3022d78d0127ba3013bd23d2e278"));
+        assert(genesis.hashMerkleRoot == uint256S("9b16e2d18fb3b14973933a16c5b64f7790d8cd6e17e60a0086f456915ab8152b"));
+        //vSeeds.push_back(CDNSSeedData("beardseed2", "dnsseeder1.bunkens.be"));
+        //vSeeds.push_back(CDNSSeedData("beardseed1", "dnsseeder2.bunkens.be"));
         // Reef addresses start with 'R'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
         // Reef script addresses start with '7'
@@ -179,7 +179,7 @@ public:
         // Reef BIP44 coin type is '5'
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x05).convert_to_container<std::vector<unsigned char> >();
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
@@ -192,8 +192,8 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("00000a8144601b679fc258d5aba342076e89e81573676eda958f75ff0a0a8561")),
-            1523764584, // * UNIX timestamp of last checkpoint block
+            ( 0, uint256S("0000087b582c43136586c1cbe4ad35461c5d3022d78d0127ba3013bd23d2e278")),
+            1527532356, // * UNIX timestamp of last checkpoint block
             0,          // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             500	        // * estimated number of transactions per day after checkpoint
@@ -413,4 +413,32 @@ void SelectParams(const std::string& network)
 {
     SelectBaseParams(network);
     pCurrentParams = &Params(network);
+}
+
+CScript CChainParams::getFoundersAddress(const std::string& foundersaddress){
+CBitcoinAddress address = CBitcoinAddress(foundersaddress);
+// if (!address.IsValid())
+//     throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Reef address");
+ CScript scriptPubKey = GetScriptForDestination(address.Get());
+
+    return scriptPubKey;
+}
+
+// Block height must be >0 and <=last founders reward block height
+// The founders reward address is expected to be a multisig (P2SH) address
+CScript CChainParams::GetFoundersRewardScript() const {
+
+    CBitcoinAddress address;
+if(Params().strNetworkID=="test"){
+     address = CBitcoinAddress("RjBesHbKrQH9hpkxFVmiWGzgyTbjBCxPng");
+}else {
+     address = CBitcoinAddress("RRC9f8j1UQ423o1YSvrdYGg1yGsVedy4QY");
+}
+// if (!address.IsValid())
+//     throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Reef address");
+ CScript scriptPubKey = GetScriptForDestination(address.Get());
+
+    return scriptPubKey;
+
+
 }
