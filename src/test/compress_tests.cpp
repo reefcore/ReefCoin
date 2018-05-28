@@ -4,7 +4,7 @@
 
 #include "compressor.h"
 #include "util.h"
-#include "test/test_reden.h"
+#include "test/test_reef.h"
 
 #include <stdint.h>
 

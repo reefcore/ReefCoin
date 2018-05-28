@@ -1,15 +1,15 @@
 [Unit]
-Description=Reden's distributed currency daemon
+Description=Reef's distributed currency daemon
 After=network.target
 
 [Service]
-User=redencore
-Group=redencore
+User=reefcore
+Group=reefcore
 
 Type=forking
-PIDFile=/var/lib/redend/redend.pid
-ExecStart=/usr/bin/redend -daemon -pid=/var/lib/redend/redend.pid \
--conf=/etc/redencore/reden.conf -datadir=/var/lib/redend -disablewallet
+PIDFile=/var/lib/reefd/reefd.pid
+ExecStart=/usr/bin/reefd -daemon -pid=/var/lib/reefd/reefd.pid \
+-conf=/etc/reefcore/reef.conf -datadir=/var/lib/reefd -disablewallet
 
 Restart=always
 PrivateTmp=true

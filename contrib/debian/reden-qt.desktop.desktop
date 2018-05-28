@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Reden
-Comment=Reden P2P Cryptocurrency
-Exec=reden-qt %u
+Name=Reef
+Comment=Reef P2P Cryptocurrency
+Exec=reef-qt %u
 Terminal=false
 Type=Application
-Icon=reden128
-MimeType=x-scheme-handler/reden;
+Icon=reef128
+MimeType=x-scheme-handler/reef;
 Categories=Office;Finance;
-Name[en_US]=reden-qt.desktop
+Name[en_US]=reef-qt.desktop

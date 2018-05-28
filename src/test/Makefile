@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. reden_test
+	$(MAKE) -C .. reef_test
 clean:
-	$(MAKE) -C .. reden_test_clean
+	$(MAKE) -C .. reef_test_clean
 check:
-	$(MAKE) -C .. reden_test_check
+	$(MAKE) -C .. reef_test_check

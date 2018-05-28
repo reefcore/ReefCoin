@@ -1,0 +1,1241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name=".settings">
+      </df>
+      <df name="build-aux">
+        <df name="m4">
+        </df>
+      </df>
+      <df name="contrib">
+        <df name="debian">
+          <df name="examples">
+          </df>
+          <df name="manpages">
+          </df>
+          <df name="patches">
+          </df>
+          <df name="source">
+          </df>
+        </df>
+        <df name="devtools">
+        </df>
+        <df name="gitian-descriptors">
+        </df>
+        <df name="gitian-downloader">
+        </df>
+        <df name="init">
+        </df>
+        <df name="linearize">
+        </df>
+        <df name="macdeploy">
+          <df name="Base.lproj">
+          </df>
+        </df>
+        <df name="qos">
+        </df>
+        <df name="seeds">
+        </df>
+        <df name="spendfrom">
+        </df>
+        <df name="testgen">
+        </df>
+        <df name="verify-commits">
+        </df>
+        <df name="verifysfbinaries">
+        </df>
+        <df name="zmq">
+        </df>
+      </df>
+      <df name="depends">
+        <df name="builders">
+        </df>
+        <df name="hosts">
+        </df>
+        <df name="packages">
+        </df>
+        <df name="patches">
+          <df name="boost">
+          </df>
+          <df name="native_biplist">
+          </df>
+          <df name="native_cdrkit">
+          </df>
+          <df name="native_mac_alias">
+          </df>
+          <df name="qt">
+          </df>
+          <df name="qt46">
+          </df>
+          <df name="zeromq">
+          </df>
+        </df>
+      </df>
+      <df name="doc">
+        <df name="gitian-building">
+        </df>
+        <df name="release-notes">
+          <df name="bitcoin">
+          </df>
+          <df name="reef">
+          </df>
+        </df>
+      </df>
+      <df name="qa">
+        <df name="pull-tester">
+        </df>
+        <df name="rpc-tests">
+          <df name="test_framework">
+          </df>
+        </df>
+      </df>
+      <df name="reef-docs">
+      </df>
+      <df name="share">
+        <df name="certs">
+        </df>
+        <df name="pixmaps">
+        </df>
+        <df name="qt">
+        </df>
+        <df name="rpcuser">
+        </df>
+      </df>
+      <df name="src">
+        <df name="bench">
+          <in>Examples.cpp</in>
+          <in>bench.cpp</in>
+          <in>bench.h</in>
+          <in>bench_reef.cpp</in>
+          <in>bench_reef.cpp</in>
+        </df>
+        <df name="compat">
+          <in>byteswap.h</in>
+          <in>endian.h</in>
+          <in>glibc_compat.cpp</in>
+          <in>glibc_sanity.cpp</in>
+          <in>glibcxx_compat.cpp</in>
+          <in>glibcxx_sanity.cpp</in>
+          <in>sanity.h</in>
+          <in>strnlen.cpp</in>
+        </df>
+        <df name="config">
+          <in>reef-config.h</in>
+        </df>
+        <df name="consensus">
+          <in>consensus.h</in>
+          <in>merkle.cpp</in>
+          <in>merkle.h</in>
+          <in>params.h</in>
+          <in>validation.h</in>
+        </df>
+        <df name="crypto">
+          <df name="ctaes">
+            <in>bench.c</in>
+            <in>ctaes.c</in>
+            <in>ctaes.h</in>
+            <in>test.c</in>
+          </df>
+          <in>aes.cpp</in>
+          <in>aes.h</in>
+          <in>aes_helper.c</in>
+          <in>blake.c</in>
+          <in>bmw.c</in>
+          <in>chacha20.cpp</in>
+          <in>chacha20.h</in>
+          <in>common.h</in>
+          <in>cubehash.c</in>
+          <in>echo.c</in>
+          <in>groestl.c</in>
+          <in>hmac_sha256.cpp</in>
+          <in>hmac_sha256.h</in>
+          <in>hmac_sha512.cpp</in>
+          <in>hmac_sha512.h</in>
+          <in>jh.c</in>
+          <in>keccak.c</in>
+          <in>luffa.c</in>
+          <in>md_helper.c</in>
+          <in>neoscrypt.c</in>
+          <in>neoscrypt.h</in>
+          <in>neoscrypt_asm.S</in>
+          <in>ripemd160.cpp</in>
+          <in>ripemd160.h</in>
+          <in>sha1.cpp</in>
+          <in>sha1.h</in>
+          <in>sha2.c</in>
+          <in>sha256.cpp</in>
+          <in>sha256.h</in>
+          <in>sha256_sse4.cpp</in>
+          <in>sha512.cpp</in>
+          <in>sha512.h</in>
+          <in>shavite.c</in>
+          <in>simd.c</in>
+          <in>skein.c</in>
+          <in>sph_blake.h</in>
+          <in>sph_bmw.h</in>
+          <in>sph_cubehash.h</in>
+          <in>sph_echo.h</in>
+          <in>sph_fugue.c</in>
+          <in>sph_fugue.h</in>
+          <in>sph_groestl.h</in>
+          <in>sph_hamsi.c</in>
+          <in>sph_hamsi.h</in>
+          <in>sph_hamsi_helper.c</in>
+          <in>sph_jh.h</in>
+          <in>sph_keccak.h</in>
+          <in>sph_luffa.h</in>
+          <in>sph_sha2.c</in>
+          <in>sph_sha2.h</in>
+          <in>sph_sha512.c</in>
+          <in>sph_shabal.c</in>
+          <in>sph_shabal.h</in>
+          <in>sph_shavite.h</in>
+          <in>sph_simd.h</in>
+          <in>sph_skein.h</in>
+          <in>sph_types.h</in>
+          <in>sph_whirlpool.c</in>
+          <in>sph_whirlpool.h</in>
+          <in>whirlpool.c</in>
+          <in>whirlpoolx.c</in>
+        </df>
+        <df name="drafted">
+          <in>governance-categories.h</in>
+          <in>governance-classes.h</in>
+          <in>governance-keys.cpp</in>
+          <in>governance-keys.h</in>
+          <in>governance-types.cpp</in>
+          <in>governance-types.h</in>
+          <in>governance.new.cpp</in>
+        </df>
+        <df name="leveldb">
+          <df name="db">
+            <in>autocompact_test.cc</in>
+            <in>builder.cc</in>
+            <in>builder.h</in>
+            <in>c.cc</in>
+            <in>c_test.c</in>
+            <in>corruption_test.cc</in>
+            <in>db_bench.cc</in>
+            <in>db_impl.cc</in>
+            <in>db_impl.h</in>
+            <in>db_iter.cc</in>
+            <in>db_iter.h</in>
+            <in>db_test.cc</in>
+            <in>dbformat.cc</in>
+            <in>dbformat.h</in>
+            <in>dbformat_test.cc</in>
+            <in>dumpfile.cc</in>
+            <in>filename.cc</in>
+            <in>filename.h</in>
+            <in>filename_test.cc</in>
+            <in>leveldb_main.cc</in>
+            <in>log_format.h</in>
+            <in>log_reader.cc</in>
+            <in>log_reader.h</in>
+            <in>log_test.cc</in>
+            <in>log_writer.cc</in>
+            <in>log_writer.h</in>
+            <in>memtable.cc</in>
+            <in>memtable.h</in>
+            <in>repair.cc</in>
+            <in>skiplist.h</in>
+            <in>skiplist_test.cc</in>
+            <in>snapshot.h</in>
+            <in>table_cache.cc</in>
+            <in>table_cache.h</in>
+            <in>version_edit.cc</in>
+            <in>version_edit.h</in>
+            <in>version_edit_test.cc</in>
+            <in>version_set.cc</in>
+            <in>version_set.h</in>
+            <in>version_set_test.cc</in>
+            <in>write_batch.cc</in>
+            <in>write_batch_internal.h</in>
+            <in>write_batch_test.cc</in>
+          </df>
+          <df name="doc">
+            <df name="bench">
+              <in>db_bench_sqlite3.cc</in>
+              <in>db_bench_tree_db.cc</in>
+            </df>
+          </df>
+          <df name="helpers">
+            <df name="memenv">
+              <in>memenv.cc</in>
+              <in>memenv.h</in>
+              <in>memenv_test.cc</in>
+            </df>
+          </df>
+          <df name="include">
+            <df name="leveldb">
+              <in>c.h</in>
+              <in>cache.h</in>
+              <in>comparator.h</in>
+              <in>db.h</in>
+              <in>dumpfile.h</in>
+              <in>env.h</in>
+              <in>filter_policy.h</in>
+              <in>iterator.h</in>
+              <in>options.h</in>
+              <in>slice.h</in>
+              <in>status.h</in>
+              <in>table.h</in>
+              <in>table_builder.h</in>
+              <in>write_batch.h</in>
+            </df>
+          </df>
+          <df name="issues">
+            <in>issue178_test.cc</in>
+            <in>issue200_test.cc</in>
+          </df>
+          <df name="port">
+            <df name="win">
+              <in>stdint.h</in>
+            </df>
+            <in>atomic_pointer.h</in>
+            <in>port.h</in>
+            <in>port_example.h</in>
+            <in>port_posix.cc</in>
+            <in>port_posix.h</in>
+            <in>port_win.cc</in>
+            <in>port_win.h</in>
+            <in>thread_annotations.h</in>
+          </df>
+          <df name="table">
+            <in>block.cc</in>
+            <in>block.h</in>
+            <in>block_builder.cc</in>
+            <in>block_builder.h</in>
+            <in>filter_block.cc</in>
+            <in>filter_block.h</in>
+            <in>filter_block_test.cc</in>
+            <in>format.cc</in>
+            <in>format.h</in>
+            <in>iterator.cc</in>
+            <in>iterator_wrapper.h</in>
+            <in>merger.cc</in>
+            <in>merger.h</in>
+            <in>table.cc</in>
+            <in>table_builder.cc</in>
+            <in>table_test.cc</in>
+            <in>two_level_iterator.cc</in>
+            <in>two_level_iterator.h</in>
+          </df>
+          <df name="util">
+            <in>arena.cc</in>
+            <in>arena.h</in>
+            <in>arena_test.cc</in>
+            <in>bloom.cc</in>
+            <in>bloom_test.cc</in>
+            <in>cache.cc</in>
+            <in>cache_test.cc</in>
+            <in>coding.cc</in>
+            <in>coding.h</in>
+            <in>coding_test.cc</in>
+            <in>comparator.cc</in>
+            <in>crc32c.cc</in>
+            <in>crc32c.h</in>
+            <in>crc32c_test.cc</in>
+            <in>env.cc</in>
+            <in>env_posix.cc</in>
+            <in>env_test.cc</in>
+            <in>env_win.cc</in>
+            <in>filter_policy.cc</in>
+            <in>hash.cc</in>
+            <in>hash.h</in>
+            <in>hash_test.cc</in>
+            <in>histogram.cc</in>
+            <in>histogram.h</in>
+            <in>logging.cc</in>
+            <in>logging.h</in>
+            <in>mutexlock.h</in>
+            <in>options.cc</in>
+            <in>posix_logger.h</in>
+            <in>random.h</in>
+            <in>status.cc</in>
+            <in>testharness.cc</in>
+            <in>testharness.h</in>
+            <in>testutil.cc</in>
+            <in>testutil.h</in>
+          </df>
+        </df>
+        <df name="obj">
+        </df>
+        <df name="obj-test">
+        </df>
+        <df name="policy">
+          <in>fees.cpp</in>
+          <in>fees.h</in>
+          <in>policy.cpp</in>
+          <in>policy.h</in>
+          <in>rbf.cpp</in>
+          <in>rbf.h</in>
+        </df>
+        <df name="primitives">
+          <in>block.cpp</in>
+          <in>block.h</in>
+          <in>transaction.cpp</in>
+          <in>transaction.h</in>
+        </df>
+        <df name="qt">
+          <df name="forms">
+          </df>
+          <df name="locale">
+          </df>
+          <df name="res">
+            <df name="css">
+            </df>
+            <df name="icons">
+              <df name="crownium">
+              </df>
+              <df name="drkblue">
+              </df>
+              <df name="light">
+              </df>
+              <df name="trad">
+              </df>
+            </df>
+            <df name="images">
+              <df name="crownium">
+              </df>
+              <df name="drkblue">
+              </df>
+              <df name="light">
+              </df>
+              <df name="trad">
+              </df>
+            </df>
+            <df name="movies">
+            </df>
+            <df name="src">
+            </df>
+          </df>
+          <df name="test">
+            <in>compattests.cpp</in>
+            <in>compattests.h</in>
+            <in>paymentrequestdata.h</in>
+            <in>paymentservertests.cpp</in>
+            <in>paymentservertests.h</in>
+            <in>test_main.cpp</in>
+            <in>uritests.cpp</in>
+            <in>uritests.h</in>
+          </df>
+          <in>addressbookpage.cpp</in>
+          <in>addressbookpage.h</in>
+          <in>addresstablemodel.cpp</in>
+          <in>addresstablemodel.h</in>
+          <in>askpassphrasedialog.cpp</in>
+          <in>askpassphrasedialog.h</in>
+          <in>bantablemodel.cpp</in>
+          <in>bantablemodel.h</in>
+          <in>bitcoinaddressvalidator.cpp</in>
+          <in>bitcoinaddressvalidator.h</in>
+          <in>bitcoinamountfield.cpp</in>
+          <in>bitcoinamountfield.h</in>
+          <in>bitcoingui.cpp</in>
+          <in>bitcoingui.h</in>
+          <in>bitcoinunits.cpp</in>
+          <in>bitcoinunits.h</in>
+          <in>clientmodel.cpp</in>
+          <in>clientmodel.h</in>
+          <in>coincontroldialog.cpp</in>
+          <in>coincontroldialog.h</in>
+          <in>coincontroltreewidget.cpp</in>
+          <in>coincontroltreewidget.h</in>
+          <in>csvmodelwriter.cpp</in>
+          <in>csvmodelwriter.h</in>
+          <in>darksendconfig.cpp</in>
+          <in>darksendconfig.h</in>
+          <in>editaddressdialog.cpp</in>
+          <in>editaddressdialog.h</in>
+          <in>guiconstants.h</in>
+          <in>guiutil.cpp</in>
+          <in>guiutil.h</in>
+          <in>intro.cpp</in>
+          <in>intro.h</in>
+          <in>macdockiconhandler.h</in>
+          <in>macdockiconhandler.mm</in>
+          <in>macnotificationhandler.h</in>
+          <in>macnotificationhandler.mm</in>
+          <in>masternodelist.cpp</in>
+          <in>masternodelist.h</in>
+          <in>networkstyle.cpp</in>
+          <in>networkstyle.h</in>
+          <in>notificator.cpp</in>
+          <in>notificator.h</in>
+          <in>openuridialog.cpp</in>
+          <in>openuridialog.h</in>
+          <in>optionsdialog.cpp</in>
+          <in>optionsdialog.h</in>
+          <in>optionsmodel.cpp</in>
+          <in>optionsmodel.h</in>
+          <in>overviewpage.cpp</in>
+          <in>overviewpage.h</in>
+          <in>paymentrequestplus.cpp</in>
+          <in>paymentrequestplus.h</in>
+          <in>paymentserver.cpp</in>
+          <in>paymentserver.h</in>
+          <in>peertablemodel.cpp</in>
+          <in>peertablemodel.h</in>
+          <in>platformstyle.cpp</in>
+          <in>platformstyle.h</in>
+          <in>qvalidatedlineedit.cpp</in>
+          <in>qvalidatedlineedit.h</in>
+          <in>qvaluecombobox.cpp</in>
+          <in>qvaluecombobox.h</in>
+          <in>receivecoinsdialog.cpp</in>
+          <in>receivecoinsdialog.h</in>
+          <in>receiverequestdialog.cpp</in>
+          <in>receiverequestdialog.h</in>
+          <in>recentrequeststablemodel.cpp</in>
+          <in>recentrequeststablemodel.h</in>
+          <in>reef.cpp</in>
+          <in>reefstrings.cpp</in>
+          <in>reef.cpp</in>
+          <in>reefstrings.cpp</in>
+          <in>rpcconsole.cpp</in>
+          <in>rpcconsole.h</in>
+          <in>sendcoinsdialog.cpp</in>
+          <in>sendcoinsdialog.h</in>
+          <in>sendcoinsentry.cpp</in>
+          <in>sendcoinsentry.h</in>
+          <in>signverifymessagedialog.cpp</in>
+          <in>signverifymessagedialog.h</in>
+          <in>splashscreen.cpp</in>
+          <in>splashscreen.h</in>
+          <in>trafficgraphwidget.cpp</in>
+          <in>trafficgraphwidget.h</in>
+          <in>transactiondesc.cpp</in>
+          <in>transactiondesc.h</in>
+          <in>transactiondescdialog.cpp</in>
+          <in>transactiondescdialog.h</in>
+          <in>transactionfilterproxy.cpp</in>
+          <in>transactionfilterproxy.h</in>
+          <in>transactionrecord.cpp</in>
+          <in>transactionrecord.h</in>
+          <in>transactiontablemodel.cpp</in>
+          <in>transactiontablemodel.h</in>
+          <in>transactionview.cpp</in>
+          <in>transactionview.h</in>
+          <in>utilitydialog.cpp</in>
+          <in>utilitydialog.h</in>
+          <in>walletframe.cpp</in>
+          <in>walletframe.h</in>
+          <in>walletmodel.cpp</in>
+          <in>walletmodel.h</in>
+          <in>walletmodeltransaction.cpp</in>
+          <in>walletmodeltransaction.h</in>
+          <in>walletview.cpp</in>
+          <in>walletview.h</in>
+          <in>winshutdownmonitor.cpp</in>
+          <in>winshutdownmonitor.h</in>
+        </df>
+        <df name="script">
+          <in>bitcoinconsensus.cpp</in>
+          <in>bitcoinconsensus.h</in>
+          <in>interpreter.cpp</in>
+          <in>interpreter.h</in>
+          <in>script.cpp</in>
+          <in>script.h</in>
+          <in>script_error.cpp</in>
+          <in>script_error.h</in>
+          <in>sigcache.cpp</in>
+          <in>sigcache.h</in>
+          <in>sign.cpp</in>
+          <in>sign.h</in>
+          <in>standard.cpp</in>
+          <in>standard.h</in>
+        </df>
+        <df name="secp256k1">
+          <df name="build-aux">
+            <df name="m4">
+            </df>
+          </df>
+          <df name="contrib">
+            <in>lax_der_parsing.c</in>
+            <in>lax_der_parsing.h</in>
+            <in>lax_der_privatekey_parsing.c</in>
+            <in>lax_der_privatekey_parsing.h</in>
+          </df>
+          <df name="include">
+            <in>secp256k1.h</in>
+            <in>secp256k1_ecdh.h</in>
+            <in>secp256k1_recovery.h</in>
+          </df>
+          <df name="obj">
+          </df>
+          <df name="sage">
+          </df>
+          <df name="src">
+            <df name="asm">
+              <in>field_10x26_arm.s</in>
+            </df>
+            <df name="java">
+              <df name="org">
+                <df name="bitcoin">
+                </df>
+              </df>
+              <in>org_bitcoin_NativeSecp256k1.c</in>
+              <in>org_bitcoin_NativeSecp256k1.h</in>
+              <in>org_bitcoin_Secp256k1Context.c</in>
+              <in>org_bitcoin_Secp256k1Context.h</in>
+            </df>
+            <df name="modules">
+              <df name="ecdh">
+                <in>main_impl.h</in>
+                <in>tests_impl.h</in>
+              </df>
+              <df name="recovery">
+                <in>main_impl.h</in>
+                <in>tests_impl.h</in>
+              </df>
+            </df>
+            <in>basic-config.h</in>
+            <in>bench.h</in>
+            <in>bench_ecdh.c</in>
+            <in>bench_ecmult.c</in>
+            <in>bench_internal.c</in>
+            <in>bench_recover.c</in>
+            <in>bench_sign.c</in>
+            <in>bench_verify.c</in>
+            <in>ecdsa.h</in>
+            <in>ecdsa_impl.h</in>
+            <in>eckey.h</in>
+            <in>eckey_impl.h</in>
+            <in>ecmult.h</in>
+            <in>ecmult_const.h</in>
+            <in>ecmult_const_impl.h</in>
+            <in>ecmult_gen.h</in>
+            <in>ecmult_gen_impl.h</in>
+            <in>ecmult_impl.h</in>
+            <in>field.h</in>
+            <in>field_10x26.h</in>
+            <in>field_10x26_impl.h</in>
+            <in>field_5x52.h</in>
+            <in>field_5x52_asm_impl.h</in>
+            <in>field_5x52_impl.h</in>
+            <in>field_5x52_int128_impl.h</in>
+            <in>field_impl.h</in>
+            <in>gen_context.c</in>
+            <in>group.h</in>
+            <in>group_impl.h</in>
+            <in>hash.h</in>
+            <in>hash_impl.h</in>
+            <in>num.h</in>
+            <in>num_gmp.h</in>
+            <in>num_gmp_impl.h</in>
+            <in>num_impl.h</in>
+            <in>scalar.h</in>
+            <in>scalar_4x64.h</in>
+            <in>scalar_4x64_impl.h</in>
+            <in>scalar_8x32.h</in>
+            <in>scalar_8x32_impl.h</in>
+            <in>scalar_impl.h</in>
+            <in>scalar_low.h</in>
+            <in>scalar_low_impl.h</in>
+            <in>scratch.h</in>
+            <in>scratch_impl.h</in>
+            <in>secp256k1.c</in>
+            <in>testrand.h</in>
+            <in>testrand_impl.h</in>
+            <in>tests.c</in>
+            <in>tests_exhaustive.c</in>
+            <in>util.h</in>
+          </df>
+        </df>
+        <df name="support">
+          <df name="allocators">
+            <in>secure.h</in>
+            <in>zeroafterfree.h</in>
+          </df>
+          <in>cleanse.cpp</in>
+          <in>cleanse.h</in>
+          <in>pagelocker.cpp</in>
+          <in>pagelocker.h</in>
+        </df>
+        <df name="test">
+          <df name="data">
+          </df>
+          <in>Checkpoints_tests.cpp</in>
+          <in>DoS_tests.cpp</in>
+          <in>accounting_tests.cpp</in>
+          <in>addrman_tests.cpp</in>
+          <in>alert_tests.cpp</in>
+          <in>allocator_tests.cpp</in>
+          <in>arith_uint256_tests.cpp</in>
+          <in>base32_tests.cpp</in>
+          <in>base58_tests.cpp</in>
+          <in>base64_tests.cpp</in>
+          <in>bip32_tests.cpp</in>
+          <in>bloom_tests.cpp</in>
+          <in>bswap_tests.cpp</in>
+          <in>cachemap_tests.cpp</in>
+          <in>cachemultimap_tests.cpp</in>
+          <in>checkblock_tests.cpp</in>
+          <in>coins_tests.cpp</in>
+          <in>compress_tests.cpp</in>
+          <in>crypto_tests.cpp</in>
+          <in>dbwrapper_tests.cpp</in>
+          <in>getarg_tests.cpp</in>
+          <in>hash_tests.cpp</in>
+          <in>key_tests.cpp</in>
+          <in>limitedmap_tests.cpp</in>
+          <in>main_tests.cpp</in>
+          <in>mempool_tests.cpp</in>
+          <in>merkle_tests.cpp</in>
+          <in>miner_tests.cpp</in>
+          <in>multisig_tests.cpp</in>
+          <in>netbase_tests.cpp</in>
+          <in>pmt_tests.cpp</in>
+          <in>policyestimator_tests.cpp</in>
+          <in>pow_tests.cpp</in>
+          <in>prevector_tests.cpp</in>
+          <in>ratecheck_tests.cpp</in>
+          <in>reverselock_tests.cpp</in>
+          <in>rpc_tests.cpp</in>
+          <in>rpc_wallet_tests.cpp</in>
+          <in>sanity_tests.cpp</in>
+          <in>scheduler_tests.cpp</in>
+          <in>script_P2PKH_tests.cpp</in>
+          <in>script_P2SH_tests.cpp</in>
+          <in>script_tests.cpp</in>
+          <in>scriptnum10.h</in>
+          <in>scriptnum_tests.cpp</in>
+          <in>serialize_tests.cpp</in>
+          <in>sighash_tests.cpp</in>
+          <in>sigopcount_tests.cpp</in>
+          <in>skiplist_tests.cpp</in>
+          <in>streams_tests.cpp</in>
+          <in>test_reef.cpp</in>
+          <in>test_reef.h</in>
+          <in>test_reef.cpp</in>
+          <in>timedata_tests.cpp</in>
+          <in>transaction_tests.cpp</in>
+          <in>txvalidationcache_tests.cpp</in>
+          <in>uint256_tests.cpp</in>
+          <in>univalue_tests.cpp</in>
+          <in>util_tests.cpp</in>
+          <in>versionbits_tests.cpp</in>
+        </df>
+        <df name="univalue">
+          <df name="build-aux">
+            <df name="m4">
+            </df>
+          </df>
+          <df name="gen">
+            <in>gen.cpp</in>
+          </df>
+          <df name="include">
+            <in>univalue.h</in>
+          </df>
+          <df name="lib">
+            <in>univalue.cpp</in>
+            <in>univalue_escapes.h</in>
+            <in>univalue_read.cpp</in>
+            <in>univalue_utffilter.h</in>
+            <in>univalue_write.cpp</in>
+          </df>
+          <df name="pc">
+          </df>
+          <df name="test">
+            <in>unitester.cpp</in>
+          </df>
+        </df>
+        <df name="wallet">
+          <df name="test">
+            <in>wallet_tests.cpp</in>
+          </df>
+          <in>crypter.cpp</in>
+          <in>crypter.h</in>
+          <in>db.cpp</in>
+          <in>db.h</in>
+          <in>rpcdump.cpp</in>
+          <in>rpcwallet.cpp</in>
+          <in>wallet.cpp</in>
+          <in>wallet.h</in>
+          <in>wallet_ismine.cpp</in>
+          <in>wallet_ismine.h</in>
+          <in>walletdb.cpp</in>
+          <in>walletdb.h</in>
+        </df>
+        <df name="zmq">
+          <in>zmqabstractnotifier.cpp</in>
+          <in>zmqabstractnotifier.h</in>
+          <in>zmqconfig.h</in>
+          <in>zmqnotificationinterface.cpp</in>
+          <in>zmqnotificationinterface.h</in>
+          <in>zmqpublishnotifier.cpp</in>
+          <in>zmqpublishnotifier.h</in>
+        </df>
+        <in>activemasternode.cpp</in>
+        <in>activemasternode.h</in>
+        <in>addressindex.h</in>
+        <in>addrman.cpp</in>
+        <in>addrman.h</in>
+        <in>alert.cpp</in>
+        <in>alert.h</in>
+        <in>amount.cpp</in>
+        <in>amount.h</in>
+        <in>arith_uint256.cpp</in>
+        <in>arith_uint256.h</in>
+        <in>base58.cpp</in>
+        <in>base58.h</in>
+        <in>bloom.cpp</in>
+        <in>bloom.h</in>
+        <in>cachemap.h</in>
+        <in>cachemultimap.h</in>
+        <in>chain.cpp</in>
+        <in>chain.h</in>
+        <in>chainparams.cpp</in>
+        <in>chainparams.h</in>
+        <in>chainparamsbase.cpp</in>
+        <in>chainparamsbase.h</in>
+        <in>chainparamsseeds.h</in>
+        <in>checkpoints.cpp</in>
+        <in>checkpoints.h</in>
+        <in>checkqueue.h</in>
+        <in>clientversion.cpp</in>
+        <in>clientversion.h</in>
+        <in>coincontrol.h</in>
+        <in>coins.cpp</in>
+        <in>coins.h</in>
+        <in>compat.h</in>
+        <in>compressor.cpp</in>
+        <in>compressor.h</in>
+        <in>core_io.h</in>
+        <in>core_memusage.h</in>
+        <in>core_read.cpp</in>
+        <in>core_write.cpp</in>
+        <in>darksend-relay.cpp</in>
+        <in>darksend-relay.h</in>
+        <in>darksend.cpp</in>
+        <in>darksend.h</in>
+        <in>dbwrapper.cpp</in>
+        <in>dbwrapper.h</in>
+        <in>dsnotificationinterface.cpp</in>
+        <in>dsnotificationinterface.h</in>
+        <in>flat-database.h</in>
+        <in>governance-classes.cpp</in>
+        <in>governance-classes.h</in>
+        <in>governance-exceptions.h</in>
+        <in>governance-misc.h</in>
+        <in>governance-object.cpp</in>
+        <in>governance-object.h</in>
+        <in>governance-vote.cpp</in>
+        <in>governance-vote.h</in>
+        <in>governance-votedb.cpp</in>
+        <in>governance-votedb.h</in>
+        <in>governance.cpp</in>
+        <in>governance.h</in>
+        <in>hash.cpp</in>
+        <in>hash.h</in>
+        <in>httprpc.cpp</in>
+        <in>httprpc.h</in>
+        <in>httpserver.cpp</in>
+        <in>httpserver.h</in>
+        <in>init.cpp</in>
+        <in>init.h</in>
+        <in>instantx.cpp</in>
+        <in>instantx.h</in>
+        <in>keepass.cpp</in>
+        <in>keepass.h</in>
+        <in>key.cpp</in>
+        <in>key.h</in>
+        <in>keystore.cpp</in>
+        <in>keystore.h</in>
+        <in>limitedmap.h</in>
+        <in>main.cpp</in>
+        <in>main.h</in>
+        <in>masternode-payments.cpp</in>
+        <in>masternode-payments.h</in>
+        <in>masternode-sync.cpp</in>
+        <in>masternode-sync.h</in>
+        <in>masternode.cpp</in>
+        <in>masternode.h</in>
+        <in>masternodeconfig.cpp</in>
+        <in>masternodeconfig.h</in>
+        <in>masternodeman.cpp</in>
+        <in>masternodeman.h</in>
+        <in>memusage.h</in>
+        <in>merkleblock.cpp</in>
+        <in>merkleblock.h</in>
+        <in>miner.cpp</in>
+        <in>miner.h</in>
+        <in>net.cpp</in>
+        <in>net.h</in>
+        <in>netbase.cpp</in>
+        <in>netbase.h</in>
+        <in>netfulfilledman.cpp</in>
+        <in>netfulfilledman.h</in>
+        <in>noui.cpp</in>
+        <in>noui.h</in>
+        <in>pow.cpp</in>
+        <in>pow.h</in>
+        <in>prevector.h</in>
+        <in>protocol.cpp</in>
+        <in>protocol.h</in>
+        <in>pubkey.cpp</in>
+        <in>pubkey.h</in>
+        <in>random.cpp</in>
+        <in>random.h</in>
+        <in>reef-cli.cpp</in>
+        <in>reef-tx.cpp</in>
+        <in>reefd.cpp</in>
+        <in>reef-cli.cpp</in>
+        <in>reef-tx.cpp</in>
+        <in>reefd.cpp</in>
+        <in>rest.cpp</in>
+        <in>reverselock.h</in>
+        <in>rpcblockchain.cpp</in>
+        <in>rpcclient.cpp</in>
+        <in>rpcclient.h</in>
+        <in>rpcgovernance.cpp</in>
+        <in>rpcmasternode.cpp</in>
+        <in>rpcmining.cpp</in>
+        <in>rpcmisc.cpp</in>
+        <in>rpcnet.cpp</in>
+        <in>rpcprotocol.cpp</in>
+        <in>rpcprotocol.h</in>
+        <in>rpcrawtransaction.cpp</in>
+        <in>rpcserver.cpp</in>
+        <in>rpcserver.h</in>
+        <in>scheduler.cpp</in>
+        <in>scheduler.h</in>
+        <in>sendalert.cpp</in>
+        <in>serialize.h</in>
+        <in>spentindex.h</in>
+        <in>spork.cpp</in>
+        <in>spork.h</in>
+        <in>streams.h</in>
+        <in>sync.cpp</in>
+        <in>sync.h</in>
+        <in>threadsafety.h</in>
+        <in>timedata.cpp</in>
+        <in>timedata.h</in>
+        <in>tinyformat.h</in>
+        <in>torcontrol.cpp</in>
+        <in>torcontrol.h</in>
+        <in>txdb.cpp</in>
+        <in>txdb.h</in>
+        <in>txmempool.cpp</in>
+        <in>txmempool.h</in>
+        <in>ui_interface.h</in>
+        <in>uint256.cpp</in>
+        <in>uint256.h</in>
+        <in>undo.h</in>
+        <in>util.cpp</in>
+        <in>util.h</in>
+        <in>utilmoneystr.cpp</in>
+        <in>utilmoneystr.h</in>
+        <in>utilstrencodings.cpp</in>
+        <in>utilstrencodings.h</in>
+        <in>utiltime.cpp</in>
+        <in>utiltime.h</in>
+        <in>validationinterface.cpp</in>
+        <in>validationinterface.h</in>
+        <in>version.h</in>
+        <in>versionbits.cpp</in>
+        <in>versionbits.h</in>
+      </df>
+    </df>
+    <df root="." name="1">
+      <df name=".settings">
+      </df>
+      <df name="build-aux">
+        <df name="m4">
+        </df>
+      </df>
+      <df name="contrib">
+        <df name="debian">
+          <df name="examples">
+          </df>
+          <df name="manpages">
+          </df>
+          <df name="patches">
+          </df>
+          <df name="source">
+          </df>
+        </df>
+        <df name="devtools">
+        </df>
+        <df name="gitian-descriptors">
+        </df>
+        <df name="gitian-downloader">
+        </df>
+        <df name="init">
+        </df>
+        <df name="linearize">
+        </df>
+        <df name="macdeploy">
+          <df name="Base.lproj">
+          </df>
+        </df>
+        <df name="qos">
+        </df>
+        <df name="seeds">
+        </df>
+        <df name="spendfrom">
+        </df>
+        <df name="testgen">
+        </df>
+        <df name="verify-commits">
+        </df>
+        <df name="verifysfbinaries">
+        </df>
+        <df name="zmq">
+        </df>
+      </df>
+      <df name="depends">
+        <df name="builders">
+        </df>
+        <df name="hosts">
+        </df>
+        <df name="packages">
+        </df>
+        <df name="patches">
+          <df name="boost">
+          </df>
+          <df name="native_biplist">
+          </df>
+          <df name="native_cdrkit">
+          </df>
+          <df name="native_mac_alias">
+          </df>
+          <df name="qt">
+          </df>
+          <df name="qt46">
+          </df>
+          <df name="zeromq">
+          </df>
+        </df>
+      </df>
+      <df name="doc">
+        <df name="gitian-building">
+        </df>
+        <df name="release-notes">
+          <df name="bitcoin">
+          </df>
+          <df name="reef">
+          </df>
+        </df>
+      </df>
+      <df name="qa">
+        <df name="pull-tester">
+        </df>
+        <df name="rpc-tests">
+          <df name="test_framework">
+          </df>
+        </df>
+      </df>
+      <df name="reef-docs">
+      </df>
+      <df name="share">
+        <df name="certs">
+        </df>
+        <df name="pixmaps">
+        </df>
+        <df name="qt">
+        </df>
+        <df name="rpcuser">
+        </df>
+      </df>
+      <df name="src">
+        <df name="bench">
+        </df>
+        <df name="compat">
+        </df>
+        <df name="config">
+        </df>
+        <df name="consensus">
+        </df>
+        <df name="crypto">
+          <df name="ctaes">
+          </df>
+        </df>
+        <df name="drafted">
+        </df>
+        <df name="leveldb">
+          <df name="db">
+          </df>
+          <df name="doc">
+            <df name="bench">
+            </df>
+          </df>
+          <df name="helpers">
+            <df name="memenv">
+            </df>
+          </df>
+          <df name="include">
+            <df name="leveldb">
+            </df>
+          </df>
+          <df name="issues">
+          </df>
+          <df name="port">
+            <df name="win">
+            </df>
+          </df>
+          <df name="table">
+          </df>
+          <df name="util">
+          </df>
+        </df>
+        <df name="obj">
+        </df>
+        <df name="obj-test">
+        </df>
+        <df name="policy">
+        </df>
+        <df name="primitives">
+        </df>
+        <df name="qt">
+          <df name="forms">
+          </df>
+          <df name="locale">
+          </df>
+          <df name="res">
+            <df name="css">
+            </df>
+            <df name="icons">
+              <df name="crownium">
+              </df>
+              <df name="drkblue">
+              </df>
+              <df name="light">
+              </df>
+              <df name="trad">
+              </df>
+            </df>
+            <df name="images">
+              <df name="crownium">
+              </df>
+              <df name="drkblue">
+              </df>
+              <df name="light">
+              </df>
+              <df name="trad">
+              </df>
+            </df>
+            <df name="movies">
+            </df>
+            <df name="src">
+            </df>
+          </df>
+          <df name="test">
+          </df>
+        </df>
+        <df name="script">
+        </df>
+        <df name="secp256k1">
+          <df name="build-aux">
+            <df name="m4">
+            </df>
+          </df>
+          <df name="contrib">
+          </df>
+          <df name="include">
+          </df>
+          <df name="obj">
+          </df>
+          <df name="sage">
+          </df>
+          <df name="src">
+            <df name="asm">
+            </df>
+            <df name="java">
+              <df name="org">
+                <df name="bitcoin">
+                </df>
+              </df>
+            </df>
+            <df name="modules">
+              <df name="ecdh">
+              </df>
+              <df name="recovery">
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="support">
+          <df name="allocators">
+          </df>
+        </df>
+        <df name="test">
+          <df name="data">
+          </df>
+        </df>
+        <df name="univalue">
+          <df name="build-aux">
+            <df name="m4">
+            </df>
+          </df>
+          <df name="gen">
+          </df>
+          <df name="include">
+          </df>
+          <df name="lib">
+          </df>
+          <df name="pc">
+          </df>
+          <df name="test">
+          </df>
+        </df>
+        <df name="wallet">
+          <df name="test">
+          </df>
+        </df>
+        <df name="zmq">
+        </df>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile></projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>3</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

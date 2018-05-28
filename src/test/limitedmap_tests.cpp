@@ -4,7 +4,7 @@
 
 #include "limitedmap.h"
 
-#include "test/test_reden.h"
+#include "test/test_reef.h"
 
 #include <boost/test/unit_test.hpp>
 

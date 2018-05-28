@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both redend and reden-qt, to make it harder for attackers to
+ * for both reefd and reef-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Reden Core");
+const std::string CLIENT_NAME("Reef Core");
 
 /**
  * Client version number

@@ -1,32 +1,32 @@
 
-Reden Core 1.0.0
+Reef Core 1.0.0
 ===============================
 
-https://reden.io
+https://reef.io
 
 
-What is Reden?
+What is Reef?
 ----------------
 
-Reden-Coin is a fully decentralised cryptocurrency built on the premise of providing anonymity, speed, fair mining by being ASIC-resistant and reliability by the usage of Masternodes.
+Reef-Coin is a fully decentralised cryptocurrency built on the premise of providing anonymity, speed, fair mining by being ASIC-resistant and reliability by the usage of Masternodes.
 
 
 For more information, as well as an immediately usable, binary version of
-the Reden Core software, see https://reden.io
+the Reef Core software, see https://reef.io
 
 
 License
 -------
 
-Reden Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Reef Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate bran
-[Tags](https://github.com/Reden/Reden/tags) are created to indicate new official,l.0.0
-stable release versions of Reden Core.
+[Tags](https://github.com/Reef/Reef/tags) are created to indicate new official,l.0.0
+stable release versions of Reef Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -58,3 +58,4 @@ code. This is especially important for large or high-risk changes. It is useful
 to add a test plan to the pull request description if testing the changes is
 not straightforward.
 
+# ReefCore

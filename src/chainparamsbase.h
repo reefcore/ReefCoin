@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between reden-cli and redend)
- * of a given instance of the Reden system.
+ * CBaseChainParams defines the base parameters (shared between reef-cli and reefd)
+ * of a given instance of the Reef system.
  */
 class CBaseChainParams
 {

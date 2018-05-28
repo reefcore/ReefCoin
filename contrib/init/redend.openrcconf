@@ -1,25 +1,25 @@
-# /etc/conf.d/redend: config file for /etc/init.d/redend
+# /etc/conf.d/reefd: config file for /etc/init.d/reefd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/redencore/reden.conf"
+#BITCOIND_CONFIGFILE="/etc/reefcore/reef.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/redend"
+#BITCOIND_PIDDIR="/var/run/reefd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/redend.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/reefd.pid"
 
-# Where to write redend data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/redend"
+# Where to write reefd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/reefd"
 
-# User and group to own redend process
-#BITCOIND_USER="redencore"
-#BITCOIND_GROUP="redencore"
+# User and group to own reefd process
+#BITCOIND_USER="reefcore"
+#BITCOIND_GROUP="reefcore"
 
-# Path to redend executable
-#BITCOIND_BIN="/usr/bin/redend"
+# Path to reefd executable
+#BITCOIND_BIN="/usr/bin/reefd"
 
-# Nice value to run redend under
+# Nice value to run reefd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

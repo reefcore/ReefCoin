@@ -1,6 +1,6 @@
 [Protocol]
-exec=reden-qt '%u'
-protocol=reden
+exec=reef-qt '%u'
+protocol=reef
 input=none
 output=none
 helper=true

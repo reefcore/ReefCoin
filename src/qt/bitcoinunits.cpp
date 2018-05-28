@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
 // Copyright (c) 2017-2018 The Proton Core developers
-// Copyright (c) 2018 The Reden Core developers
+// Copyright (c) 2018 The Reef Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,9 +48,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("REDEN");
-            case mREDN: return QString("mREDEN");
-            case uREDN: return QString::fromUtf8("μREDEN");
+            case REDN: return QString("REEF");
+            case mREDN: return QString("mREEF");
+            case uREDN: return QString::fromUtf8("μREEF");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -59,9 +59,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("tREDEN");
-            case mREDN: return QString("mtREDEN");
-            case uREDN: return QString::fromUtf8("μtREDEN");
+            case REDN: return QString("tREEF");
+            case mREDN: return QString("mtREEF");
+            case uREDN: return QString::fromUtf8("μtREEF");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -74,10 +74,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("Reden");
-            case mREDN: return QString("Milli-Reden (1 / 1" THIN_SP_UTF8 "000)");
-            case uREDN: return QString("Micro-Reden (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-Reden (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case REDN: return QString("Reef");
+            case mREDN: return QString("Milli-Reef (1 / 1" THIN_SP_UTF8 "000)");
+            case uREDN: return QString("Micro-Reef (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-Reef (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -85,10 +85,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("TestRedens");
-            case mREDN: return QString("Milli-TestReden (1 / 1" THIN_SP_UTF8 "000)");
-            case uREDN: return QString("Micro-TestReden (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestReden (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case REDN: return QString("TestReefs");
+            case mREDN: return QString("Milli-TestReef (1 / 1" THIN_SP_UTF8 "000)");
+            case uREDN: return QString("Micro-TestReef (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestReef (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
