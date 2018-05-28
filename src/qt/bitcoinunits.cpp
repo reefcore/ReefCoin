@@ -21,9 +21,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(REDN);
-    unitlist.append(mREDN);
-    unitlist.append(uREDN);
+    unitlist.append(REEF);
+    unitlist.append(mREEF);
+    unitlist.append(uREEF);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -32,9 +32,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case REDN:
-    case mREDN:
-    case uREDN:
+    case REEF:
+    case mREEF:
+    case uREEF:
     case duffs:
         return true;
     default:
@@ -48,9 +48,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("REEF");
-            case mREDN: return QString("mREEF");
-            case uREDN: return QString::fromUtf8("μREEF");
+            case REEF: return QString("REEF");
+            case mREEF: return QString("mREEF");
+            case uREEF: return QString::fromUtf8("μREEF");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -59,9 +59,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("tREEF");
-            case mREDN: return QString("mtREEF");
-            case uREDN: return QString::fromUtf8("μtREEF");
+            case REEF: return QString("tREEF");
+            case mREEF: return QString("mtREEF");
+            case uREEF: return QString::fromUtf8("μtREEF");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -74,9 +74,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("Reef");
-            case mREDN: return QString("Milli-Reef (1 / 1" THIN_SP_UTF8 "000)");
-            case uREDN: return QString("Micro-Reef (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case REEF: return QString("Reef");
+            case mREEF: return QString("Milli-Reef (1 / 1" THIN_SP_UTF8 "000)");
+            case uREEF: return QString("Micro-Reef (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case duffs: return QString("Ten Nano-Reef (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -85,9 +85,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case REDN: return QString("TestReefs");
-            case mREDN: return QString("Milli-TestReef (1 / 1" THIN_SP_UTF8 "000)");
-            case uREDN: return QString("Micro-TestReef (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case REEF: return QString("TestReefs");
+            case mREEF: return QString("Milli-TestReef (1 / 1" THIN_SP_UTF8 "000)");
+            case uREEF: return QString("Micro-TestReef (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case duffs: return QString("Ten Nano-TestReef (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -98,9 +98,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case REDN:  return 100000000;
-    case mREDN: return 100000;
-    case uREDN: return 100;
+    case REEF:  return 100000000;
+    case mREEF: return 100000;
+    case uREEF: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -110,9 +110,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case REDN: return 8;
-    case mREDN: return 5;
-    case uREDN: return 2;
+    case REEF: return 8;
+    case mREEF: return 5;
+    case uREEF: return 2;
     case duffs: return 0;
     default: return 0;
     }

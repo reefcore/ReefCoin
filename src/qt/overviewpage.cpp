@@ -40,7 +40,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     TxViewDelegate(const PlatformStyle *platformStyle):
-        QAbstractItemDelegate(), unit(BitcoinUnits::REDN),
+        QAbstractItemDelegate(), unit(BitcoinUnits::REEF),
         platformStyle(platformStyle)
     {
 

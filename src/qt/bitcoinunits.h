@@ -59,9 +59,9 @@ public:
      */
     enum Unit
     {
-        REDN,
-        mREDN,
-        uREDN,
+        REEF,
+        mREEF,
+        uREEF,
         duffs
     };
 
