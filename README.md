@@ -2,7 +2,7 @@
 Reef Core 1.0.0
 ===============================
 
-https://reef.io
+https://reefcoin.io
 
 
 What is Reef?
