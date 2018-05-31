@@ -80,6 +80,7 @@ public:
     mutable CTxOut txoutMasternode; // masternode payment
     mutable std::vector<CTxOut> voutSuperblock; // superblock payment
     mutable bool fChecked;
+    mutable CTXOut txoutDevFund;
 
     CBlock()
     {
@@ -107,6 +108,7 @@ public:
         txoutMasternode = CTxOut();
         voutSuperblock.clear();
         fChecked = false;
+        txoutDevFund = CTxOut();
     }
 
     CBlockHeader GetBlockHeader() const

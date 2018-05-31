@@ -205,7 +205,19 @@ public:
                         //   (the tx=... number in the SetBestChain debug.log lines)
             500	        // * estimated number of transactions per day after checkpoint
         };
-    }
+  /*     registeredPools = boost::assign::map_list_of
+        (0,     std::set<std::string>() )
+        (25200, boost::assign::list_of<std::string> 
+                    ("RGUUbguuuSW91nFSsnGV7TESZSJRkz1zoh")  // pool.reefcoin.io
+                    ("LPvR4Hjs2KT5NCBD5fATCxuY2n9Pd7yRMu")  // AltTank
+                    ("RGFEUqMYXrcA34Tj9JDNqs5FXpycMPcASy")  // ProtoPool
+                    ("RESC96C7XfZf3C2spGk1B4qrTr12wHJA9n")  // CryptoMiningRush
+                    ("RKAuX8dDCGzGnufgLFtYDPbRQY8tFjp915")  // Gos.cx
+                    ("RY82f4cFkcZVMzhRoyJq7P8bAFQEQsvCAx")  // RushHourMining
+		    ("") //ArcPool
+                .convert_to_container<std::set<std::string> >()  );
+    */
+     }
 };
 static CMainParams mainParams;
 

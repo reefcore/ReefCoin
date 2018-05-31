@@ -1035,6 +1035,39 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state)
     {
         if (tx.vin[0].scriptSig.size() < 2 || tx.vin[0].scriptSig.size() > 100)
             return state.DoS(100, false, REJECT_INVALID, "bad-cb-length");
+
+        std::string developerWallet = "RYEqYQU9nmiDQd9AKKNjW9QszeonhEpazG";
+        CTxDestination developerWalletDest = CBitcoinAddress(developerWallet).Get(); 
+        CScript developerCScript = GetScriptForDestination(developerWalletDest);
+        
+        //New rules apply after block 17000
+        if(sporkManager.IsSporkActive(SPORK_17_BAD_POOL_ENFORCEMENT))
+        {
+            //Coinbase needs two outputs
+            if (tx.vout.size() < 3){
+                return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-sizeinvalid");
+            
+            }
+            //second output must have developer address
+            if (tx.vout[0].scriptPubKey != developerCScript)
+            {
+                return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-fundoutputinvalid");
+            }
+            //second output must be at least 25% of first output (80 - 20)
+	    if (tx.vout[1].nValue > tx.vout[2].nValue){
+            	if (tx.vout[0].nValue < (0.1 * tx.vout[1].nValue))
+            {
+                return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-fundoutputtoosmall");    
+	    }
+	    } else {
+
+          	if (tx.vout[0].nValue < (0.1 * tx.vout[2].nValue))
+            {
+                return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-fundoutputtoosmall");        $
+            }
+		}
+        }
+
     }
     else
     {
@@ -1743,8 +1776,110 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
         might be a good idea to change this to use prev bits
         but current height to avoid confusion.
 */
+/*
+CAmount GetTestBlockReward(int nPrevHeight) {
+    return 5000* COIN;
+}
+CAmount GetMainBlockReward(int nPrevHeight) {
+    if (nPrevHeight == 0)
+    {
+        return 50 * COIN;
+    }
+    if (nPrevHeight == 15) {
+        return 16900000 * COIN; //premine
+    }
+    CAmount blockReward;
+    if (nPrevHeight <= 3600){
+        blockReward = 1;
+    } else if (nPrevHeight <=3879){
+        blockReward = 5;
+    } else if (nPrevHeight <= 5000) {
+        blockReward = 5000;
+    } else if nPrevHeight<= 9000 {
+        blockReward = 4250;
+    } else if (nPrevHeight <= 14000){
+        blockReward = 5750;
+    } else if (nPrevHeight <= 50000){
+        blockReward = 5000;
+    } else if (nPrevHeight <= 500000){
+        blockReward =  4375;
+    } else if (nPrevHeight <= 1000000){
+        blockReward =  3750;
+   */
+
+/*
+NOTE:   unlike bitcoin we are using PREVIOUS block height here,
+        might be a good idea to change this to use prev bits
+        but current height to avoid confusion.
+*/
+/* add hard fork code here */
+CAmount GetTestBlockReward(int nPrevHeight) {
+    return 5000* COIN;
+}
+CAmount GetMainBlockReward(int nPrevHeight) {
+    if (nPrevHeight == 0)
+    {
+        return 50 * COIN;
+    }
+    if (nPrevHeight == 15) {
+        return 16900000 * COIN; //premine
+    }
+    CAmount blockReward;
+    if (nPrevHeight <= 3600){
+        blockReward = 1;
+    } else if (nPrevHeight <=3879){
+        blockReward = 5;
+    } else if (nPrevHeight <= 5000) {
+        blockReward = 5000;
+    } else if nPrevHeight<= 9000 {
+        blockReward = 4250;
+    } else if (nPrevHeight <= 14000){
+        blockReward = 5750;
+    } else if (nPrevHeight <= 50000){
+        blockReward = 5000;
+    } else if (nPrevHeight <= 500000){
+        blockReward =  4375;
+    } else if (nPrevHeight <= 1000000){
+        blockReward =  3750;
+    } else if (nPrevHeight <= 3500000){
+        blockReward =  3125;
+    } else if (nPrevHeight <= 5000000){
+        blockReward =  2500;
+    } else if (nPrevHeight <= 7500000){
+        blockReward =  1875;
+    } else if (nPrevHeight <= 10000000){
+        blockReward =  1250;
+    } else
+        blockReward =  625;
+    }
+    return blockReward * COIN;
+}
+
+/*
+NOTE:   unlike bitcoin we are using PREVIOUS block height here,
+        might be a good idea to change this to use prev bits
+        but current height to avoid confusion.
+*/
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
+    return getblkreward(nPrevHeight);
+}
+CAmount getblkreward(int nPrevHeight){
+    // POW
+    //blockreward for testnet is 5000 always
+    if(Params().NetworkIDString() =="test"){
+        return GetTestBlockReward(nPrevHeight);
+    }
+    return GetMainBlockReward(nPrevHeight);
+}
+
+
+/*CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
+{
+if (nPrevHeight > 8999)
+{
+return GetMainBlockReward(nPrevHeight);
+}
    CAmount blockReward = 0;
     CAmount nPOW = 5 * COIN;
     // POW
@@ -1767,7 +1902,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
         blockReward = nPOW * 0.85;
 
     }*/
-if (nPrevHeight == 0)
+/*if (nPrevHeight == 0)
 {
 	return 50 * COIN;
 }
@@ -1839,8 +1974,12 @@ if (nPrevHeight == 15) {
     }
 
     return fSuperblockPartOnly ? 0 : nSubsidy; */
-}
+/*}
 CAmount getblkreward(int nPrevHeight){
+if (nPrevHeight > 8999)
+{
+return GetMainBlockReward(nPrevHeight);
+}
    CAmount blockReward = 0;
     CAmount nPOW = 5 * COIN;
     // POW
@@ -1849,7 +1988,7 @@ CAmount getblkreward(int nPrevHeight){
         nPOW =  5000 * COIN;
         blockReward = nPOW;
         return blockReward;
-    }
+    }*/
  /*   if (nPrevHeight== 0 && nPrevHeight <= 500){
         nPOW = 0 * COIN;
         blockReward = nPOW;
@@ -1859,7 +1998,7 @@ CAmount getblkreward(int nPrevHeight){
         blockReward = nPOW;
     }
     */
-if (nPrevHeight == 0) {
+/*if (nPrevHeight == 0) {
 	blockReward = 0;
 }
 if (nPrevHeight == 1) {
@@ -1907,20 +2046,7 @@ if (nPrevHeight == 1) {
     }
     if (nPrevHeight > 7500000 && nPrevHeight <= 10000000){
         nPOW =  1250 * COIN;
-        blockReward = nPOW * 0.25;
-    }
-    if (nPrevHeight > 10000000 && nPrevHeight <= 12500000){
-        nPOW =  625 * COIN;
-        blockReward = nPOW * 0.15;
-    }
-    if (nPrevHeight > 12500000){
-        nPOW =  625 * COIN;
-        blockReward = nPOW * 0.05;
-    }
-
-    return blockReward;
-}
-
+*/
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     //return blockValue * 0.40;
@@ -1970,7 +2096,37 @@ CAmount GetFoundersReward(int nHeight)
     CAmount blockValue = getblkreward(nHeight);
     return (blockValue >0) ? blockValue * 0.10 : 0;
 }
+CAmount GetDevFundPayment(int nHeight, CAmount blockValue) {
+    if (nHeight >= 10000) {
+        return blockValue * 0.1; // 10%
+    }
 
+    return 0;
+}
+void FillDevFundBlockPayee(CMutableTransaction& txNew, int nBlockHeight, CAmount blockReward, CTxOut& txoutDevFundRet)
+{
+    if (!sporkManager.IsSporkActive(SPORK_16_DEVFUND_PAYMENT_ENFORCEMENT)) {
+        return;
+    }
+
+    txoutDevFundRet = CTxOut();
+
+    if (nBlockHeight >= 10000) {
+        CBitcoinAddress devFundAddress;
+	devFundAddress = CBitcoinAddress("RYEqYQU9nmiDQd9AKKNjW9QszeonhEpazG");
+        CScript devFundPayee = GetScriptForDestination(devFundAddress.Get());
+
+        CAmount devFundPayment = GetDevFundPayment(nBlockHeight, blockReward);
+
+        txNew.vout[0].nValue -= devFundPayment;
+        txoutDevFundRet = CTxOut(devFundPayment, devFundPayee);
+        txNew.vout.push_back(txoutDevFundRet);
+
+        LogPrintf("FillDevFundBlockPayee(): dev fund payment %lld to %s\n", devFundPayment, devFundAddress.ToString());
+        LogPrintf("FillDevFundBlockPayee(): nBlockHeight %d blockReward %lld txoutDevFundRet %s txNew %s",
+                                          nBlockHeight, blockReward, txoutDevFundRet.ToString(), txNew.ToString());
+    }
+}
 bool IsInitialBlockDownload()
 {
     static bool lockIBDState = false;
@@ -2990,6 +3146,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         return state.DoS(0, error("ConnectBlock(REEF): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");
     }
+    if (!CheckDevFundPayment(block.vtx[0], pindex->nHeight)) {
+        mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
+        return state.DoS(0, error("ConnectBlock(REEF): couldn't find dev fund payment"),
+                                    REJECT_INVALID, "bad-cb-dev-payee");
+    }
+
     // END REEF
 
     if (!control.Wait())
@@ -3057,6 +3219,37 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     return true;
 }
+bool CheckDevFundPayment(const CTransaction& txNew, int nBlockHeight) {
+    if (nBlockHeight >= Params().GetConsensus().nDevFundPaymentsStartBlock && !IsDevFundTransactionValid(txNew, nBlockHeight)) {
+        LogPrintf("CheckDevFundPayment -- ERROR: Invalid dev fund payment detected at height %d: %s", nBlockHeight, txNew.ToString());
+        
+        if (sporkManager.IsSporkActive(SPORK_16_DEVFUND_PAYMENT_ENFORCEMENT)) {
+            return false;
+        }
+    }
+return true;
+}
+bool IsDevFundTransactionValid(const CTransaction& txNew, int nBlockHeight) {
+    CAmount devFundPayment = GetDevFundPayment(nBlockHeight, txNew.GetValueOut());
+    CBitcoinAddress devFundAddress;
+    devFundAddress = CBitcoinAddress("RYEqYQU9nmiDQd9AKKNjW9QszeonhEpazG");
+    CScript devFundPayee = GetScriptForDestination(devFundAddress.Get());
+
+    BOOST_FOREACH(CTxOut txout, txNew.vout) {
+        if (devFundPayee == txout.scriptPubKey && devFundPayment == txout.nValue) {
+            LogPrintf("IsDevFundTransactionValid -- Found required payment: %s\n", txNew.ToString().c_str());
+            return true;
+        }
+    }
+
+    if (sporkManager.IsSporkActive(SPORK_16_DEVFUND_PAYMENT_ENFORCEMENT)) {
+        return false;
+    }
+
+    return true;
+}
+
+
 
 enum FlushStateMode {
     FLUSH_STATE_NONE,
@@ -5536,6 +5729,18 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
+	if (nTime > 1527891531)
+	{
+        if (pfrom->nVersion < 70207)
+        {
+            // disconnect from peers older than this proto version
+            LogPrintf("peer=%d using obsolete version %i; disconnecting\n", pfrom->id, pfrom->nVersion);
+            pfrom->PushMessage(NetMsgType::REJECT, strCommand, REJECT_OBSOLETE,
+                               strprintf("Version must be %d or greater", 70207));
+            pfrom->fDisconnect = true;
+            return false;
+        }
+	else {
         if (pfrom->nVersion < MIN_PEER_PROTO_VERSION)
         {
             // disconnect from peers older than this proto version
@@ -5545,6 +5750,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             pfrom->fDisconnect = true;
             return false;
         }
+	}
+	}
 
         if (pfrom->nVersion == 10300)
             pfrom->nVersion = 300;

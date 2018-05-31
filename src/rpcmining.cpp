@@ -645,6 +645,28 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
     result.push_back(Pair("superblocks_started", pindexPrev->nHeight + 1 > Params().GetConsensus().nSuperblockStartBlock));
     result.push_back(Pair("superblocks_enabled", sporkManager.IsSporkActive(SPORK_9_SUPERBLOCKS_ENABLED)));
 
+    UniValue devfundObj(UniValue::VOBJ);
+    if(pblock->txoutDevFund != CTxOut()) {
+        CTxDestination address1;
+        ExtractDestination(pblock->txoutDevFund.scriptPubKey, address1);
+        CBitcoinAddress address2(address1);
+        devfundObj.push_back(Pair("payee", address2.ToString().c_str()));
+        devfundObj.push_back(Pair("script", HexStr(pblock->txoutDevFund.scriptPubKey.begin(), pblock->txoutDevFund.scriptPubKey.end())));
+        devfundObj.push_back(Pair("amount", pblock->txoutDevFund.nValue));
+    }
+    result.push_back(Pair("devfund", devfundObj));
+    result.push_back(Pair("devfund_payments_started", pindexPrev->nHeight + 1 >= 10000));
+/*
+    UniValue allowedBlockForgersArray(UniValue::VARR);
+    std::set<std::string> registeredPools;
+    ListRegisteredPools(pindexPrev->nHeight + 1, registeredPools);
+    BOOST_FOREACH (const std::string& addr, registeredPools) {
+        allowedBlockForgersArray.push_back(addr);
+    }
+
+    result.push_back(Pair("allowed_block_forgers", allowedBlockForgersArray));
+    result.push_back(Pair("allowed_block_forgers_started", pindexPrev->nHeight + 1 >= Params().GetConsensus().nPoolRegistrationStartBlock));
+*/
     return result;
 }
 

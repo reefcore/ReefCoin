@@ -2138,8 +2138,15 @@ void RelayTransaction(const CTransaction& tx, const CDataStream& ss)
 void RelayInv(CInv &inv, const int minProtoVersion) {
     LOCK(cs_vNodes);
     BOOST_FOREACH(CNode* pnode, vNodes)
+    if (GetTime() > 1527891531)
+	{
+        if(pnode->nVersion >= 70207)
+            pnode->PushInventory(inv);
+	}
+	else {
         if(pnode->nVersion >= minProtoVersion)
             pnode->PushInventory(inv);
+}
 }
 
 void CNode::RecordBytesRecv(uint64_t bytes)

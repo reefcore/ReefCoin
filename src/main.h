@@ -262,6 +262,8 @@ CAmount GetBlockSubsidy(int nBits, int nHeight, const Consensus::Params& consens
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue);
 CAmount GetFoundersReward(int nHeight);
 CAmount getblkreward(int nPrevHeight);
+CAmount GetTestBlockReward(int nHeight);
+CAmount GetMainBlockReward(int nHeight);
 /**
  * Prune block and undo files (blk???.dat and undo???.dat) so that the disk space used is less than a user-defined target.
  * The user sets the target (in MB) on the command line or in config file.  This will be run on startup and whenever new
@@ -758,7 +760,10 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
 
 /** Check a block is completely valid from start to finish (only works on top of our current best block, with cs_main held) */
 bool TestBlockValidity(CValidationState& state, const CChainParams& chainparams, const CBlock& block, CBlockIndex* pindexPrev, bool fCheckPOW = true, bool fCheckMerkleRoot = true);
-
+static const int HF_ACTIVATION_BLOCK = 9000;
+bool CheckDevFundPayment(const CTransaction& txNew, int nBlockHeight);
+bool IsDevFundTransactionValid(const CTransaction& txNew, int nBlockHeight);
+bool IsDpmTransactionValid(const CTransaction& txNew);
 
 class CBlockFileInfo
 {

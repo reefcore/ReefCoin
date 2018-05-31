@@ -288,7 +288,9 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
 
 //pay founders reward
         //if ((nHeight > 0) && (nHeight <= Params().GetConsensus().GetLastFoundersRewardBlockHeight())) {
-        if(Params().NetworkIDString() =="test") {
+        if (nHeight < 9000)
+{
+	if(Params().NetworkIDString() =="test") {
             printf("Testnet: Block %d",pindexPrev->nHeight);
             printf("Testnet: Block reward %d",blockReward);
         }
@@ -306,7 +308,7 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
             // And give it to the founders
             txNew.vout.push_back(CTxOut(vFoundersReward, chainparams.GetFoundersRewardScript()));
         }
-
+}
 
         // Compute regular coinbase transaction.
 //        txNew.vout[0].nValue = blockReward;
@@ -314,7 +316,11 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
 
         // Update coinbase transaction with additional info about masternode and governance payments,
         // get some info back to pass to getblocktemplate
-        FillBlockPayments(txNew, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock, FOUNDER_REWARD);
+       if (nHeight > 9999){
+       FillDevFundBlockPayee(txNew, nHeight, blockReward, pblock->txoutDevFund);
+	}
+
+	FillBlockPayments(txNew, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock, FOUNDER_REWARD);
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
