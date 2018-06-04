@@ -173,7 +173,7 @@ public:
 	vSeeds.push_back(CDNSSeedData("107.174.138.108", "107.174.138.108"));
 	vSeeds.push_back(CDNSSeedData("107.174.47.174", "107.174.47.174"));
 	vSeeds.push_back(CDNSSeedData("alttank", "test.alttank.ca"));
-
+        vSeeds.push_back(CDNSSeedData("alttank2", "seednode.alttank.ca"));
         // Reef addresses start with 'R'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
         // Reef script addresses start with '7'
