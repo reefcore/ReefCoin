@@ -262,6 +262,7 @@ CAmount GetBlockSubsidy(int nBits, int nHeight, const Consensus::Params& consens
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue);
 CAmount GetFoundersReward(int nHeight);
 CAmount getblkreward(int nPrevHeight);
+bool CheckDevFundPayment(const CTransaction& txNew, int nBlockHeight);
 /**
  * Prune block and undo files (blk???.dat and undo???.dat) so that the disk space used is less than a user-defined target.
  * The user sets the target (in MB) on the command line or in config file.  This will be run on startup and whenever new

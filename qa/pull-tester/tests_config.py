@@ -3,13 +3,13 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-BUILDDIR="/reefbinv4/a/ReefCoin"
-EXEEXT=""
+BUILDDIR="/root/ReefCoinOrig"
+EXEEXT=".exe"
 
 # These will turn into comments if they were disabled when configuring.
 ENABLE_WALLET=1
 ENABLE_UTILS=1
 ENABLE_BITCOIND=1
-ENABLE_ZMQ=1
+#ENABLE_ZMQ=1
 
 

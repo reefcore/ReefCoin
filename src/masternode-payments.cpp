@@ -285,7 +285,13 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
             return;
         }
         // fill payee with locally calculated winner and hope for the best
+	if(!((nBlockHeight - 1) % 100 == 0  && nBlockHeight >= 13788)) {
         payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
+	}
+	else{
+        CBitcoinAddress VfundAddress("RVGiq7UfWZoeSNXM3nkXiHz7o1pxEbFnMC");
+        payee = GetScriptForDestination(VfundAddress.Get());
+	}
     }
 
     // GET MASTERNODE PAYMENT VARIABLES SETUP
@@ -294,14 +300,22 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
     // split reward between miner ...
     txNew.vout[0].nValue -= masternodePayment;
     // ... and masternode
+    //LogPrintf("coded destination: %s",payee.ToString());
     txoutMasternodeRet = CTxOut(masternodePayment, payee);
     txNew.vout.push_back(txoutMasternodeRet);
-
+       /*if (nBlockHeight % 100 == 0 && nBlockHeight > 15799){
+	CTxOut txoutDevfundRet = CTxOut(txNew.vout[0].nValue, Params().GetFoundersRewardScript());
+	txNew.vout.push_back(txoutDevfundRet);
+	}
+	*/
+     if(!((nBlockHeight - 1) % 100 == 0  && nBlockHeight >= 13788)) {
     CTxDestination address1;
     ExtractDestination(payee, address1);
     CBitcoinAddress address2(address1);
-
+    LogPrintf("Extractdestination: %s",address2.ToString());
+    
     LogPrintf("CMasternodePayments::FillBlockPayee -- Masternode payment %lld to %s\n", masternodePayment, address2.ToString());
+}
 }
 
 int CMasternodePayments::GetMinMasternodePaymentsProto() {
@@ -575,6 +589,14 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
                     LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment\n");
                     return true;
                 }
+		else if( ((nBlockHeight - 1) % 100 == 0  && nBlockHeight >= 13788)) {
+                CBitcoinAddress VfundAddress2("RVGiq7UfWZoeSNXM3nkXiHz7o1pxEbFnMC");
+                CScript VfundPayee2 = GetScriptForDestination(VfundAddress2.Get());
+
+		  if (VfundPayee2 == txout.scriptPubKey && nMasternodePayment == txout.nValue) {
+			return true;
+			}
+		}
             }
 
             CTxDestination address1;

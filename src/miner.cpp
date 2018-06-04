@@ -7,7 +7,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "miner.h"
-
+#include "base58.h"
 #include "amount.h"
 #include "chain.h"
 #include "chainparams.h"
@@ -283,9 +283,13 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
         // Compute regular coinbase transaction.
         txNew.vout[0].nValue = blockReward;
         txNew.vin[0].scriptSig = CScript() << nHeight << OP_0;
-    FOUNDER_REWARD = false;
-
-
+	if (pindexPrev->nHeight < 12788) {
+	FOUNDER_REWARD = false;
+	}
+	else {
+	FOUNDER_REWARD = true;
+	}
+        if (pindexPrev->nHeight < 12788) {
 //pay founders reward
         //if ((nHeight > 0) && (nHeight <= Params().GetConsensus().GetLastFoundersRewardBlockHeight())) {
         if(Params().NetworkIDString() =="test") {
@@ -306,7 +310,7 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
             // And give it to the founders
             txNew.vout.push_back(CTxOut(vFoundersReward, chainparams.GetFoundersRewardScript()));
         }
-
+}
 
         // Compute regular coinbase transaction.
 //        txNew.vout[0].nValue = blockReward;
@@ -314,7 +318,32 @@ CBlockTemplate* CreateNewBlock(const CChainParams& chainparams, const CScript& s
 
         // Update coinbase transaction with additional info about masternode and governance payments,
         // get some info back to pass to getblocktemplate
-        FillBlockPayments(txNew, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock, FOUNDER_REWARD);
+           /* if (nHeight > 13797 && (nHeight-1) % 100 == 0) {
+            CBitcoinAddress VfundAddress("RHDSQzBKxGsaacE9nokywZhAHNmvjmqRzz");
+            CScript VfundPayee = GetScriptForDestination(VfundAddress.Get());
+            //CAmount VfundPayment = txNew.vout[0].nValue;
+	    CAmount VfundPayment = (getblkreward(nHeight-8) / 0.9) * 10;
+	  //  txNew.vout[0].nValue -= dpmPayment;
+           // CTxOut txoutVfundRet = CTxOut(dpmPayment, VfundPayee);
+           // txNew.vout.push_back(txoutVfundRet);
+            /*txNew.vout[0].nValue -= dpmPayment;
+            CTxOut txoutDpmRet = CTxOut(dpmPayment, dpmPayee);
+            txNew.vout.push_back(txoutDpmRet);
+
+            LogPrintf("CreateNewBlock(): dpm payment %lld to %s\n", dpmPayment, dpmAddress.ToString());
+            LogPrintf("CreateNewBlock(): nBlockHeight %d blockReward %lld txoutDpmRet %s txNew %s",
+                                              nHeight, blockReward, txoutDpmRet.ToString(), txNew.ToString());
+        }
+            txNew.vout[0].nValue -= VfundPayment;
+            CTxOut txoutVfundRet = CTxOut(VfundPayment, VfundPayee);
+            txNew.vout.push_back(txoutVfundRet);
+
+            LogPrintf("CreateNewBlock(): VFund payment %lld to %s\n", VfundPayment, VfundAddress.ToString());
+            LogPrintf("CreateNewBlock(): nBlockHeight %d blockReward %lld txoutVfundRet %s txNew %s",
+                                              nHeight, blockReward, txoutVfundRet.ToString(), txNew.ToString());
+        }*/
+	//FillDevFundBlockPayee(txNew, nHeight, blockReward, pblock->txoutDevFund);
+	FillBlockPayments(txNew, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock, FOUNDER_REWARD);
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
