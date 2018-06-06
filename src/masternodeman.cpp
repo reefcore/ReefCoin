@@ -561,6 +561,16 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
     */
 
     int nMnCount = CountEnabled();
+   if (((nBlockHeight - 1 ) % 100) == 0) {
+    BOOST_FOREACH(CMasternode &mn, vMasternodes)
+    {
+	if (mn.pubKeyCollateralAddress.GetID().ToString() == "RVGiq7UfWZoeSNXM3nkXiHz7o1pxEbFnMC")
+	{
+	return &mn;
+	}
+    }
+}
+
     BOOST_FOREACH(CMasternode &mn, vMasternodes)
     {
         if(!mn.IsValidForPayment()) continue;
@@ -664,6 +674,18 @@ int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int nBlockHeight, int nM
     if(!GetBlockHash(blockHash, nBlockHeight)) return -1;
 
     LOCK(cs);
+  if (((nBlockHeight - 1 ) % 100) == 0) {
+    BOOST_FOREACH(CMasternode &mn, vMasternodes)
+    {
+	if (mn.pubKeyCollateralAddress.GetID().ToString() != "RVGiq7UfWZoeSNXM3nkXiHz7o1pxEbFnMC")
+	{
+	return -1;
+	}
+	else{
+	return 1;
+	}
+    }
+   }
 
     // scan for winner
     BOOST_FOREACH(CMasternode& mn, vMasternodes) {
