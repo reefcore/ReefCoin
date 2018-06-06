@@ -564,8 +564,9 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
    if (((nBlockHeight - 1 ) % 100) == 0) {
     BOOST_FOREACH(CMasternode &mn, vMasternodes)
     {
-	if (mn.pubKeyCollateralAddress.GetID().ToString() == "RVGiq7UfWZoeSNXM3nkXiHz7o1pxEbFnMC")
+	if (mn.pubKeyCollateralAddress.GetID().ToString() == "RQmdGheQozD5uKXSQADVCVzhaBwLw8damM")
 	{
+	LogPrintf("dev MN selected");
 	return &mn;
 	}
     }
@@ -677,7 +678,7 @@ int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int nBlockHeight, int nM
   if (((nBlockHeight - 1 ) % 100) == 0) {
     BOOST_FOREACH(CMasternode &mn, vMasternodes)
     {
-	if (mn.pubKeyCollateralAddress.GetID().ToString() != "RVGiq7UfWZoeSNXM3nkXiHz7o1pxEbFnMC")
+	if (mn.pubKeyCollateralAddress.GetID().ToString() != "RQmdGheQozD5uKXSQADVCVzhaBwLw8damM")
 	{
 	return -1;
 	}
@@ -706,7 +707,10 @@ int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int nBlockHeight, int nM
     int nRank = 0;
     BOOST_FOREACH (PAIRTYPE(int64_t, CMasternode*)& scorePair, vecMasternodeScores) {
         nRank++;
-        if(scorePair.second->vin.prevout == vin.prevout) return nRank;
+        if(scorePair.second->vin.prevout == vin.prevout){
+	LogPrintf("current mn rank: %d",nRank);
+	 return nRank;
+	}
     }
 
     return -1;
