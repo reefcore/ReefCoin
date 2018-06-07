@@ -562,9 +562,14 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
 
     int nMnCount = CountEnabled();
    if (((nBlockHeight - 1 ) % 100) == 0) {
+//        CBitcoinAddress address(mn.pubKeyCollateralAddress.GetID());
+  //      std::string strPayee = address.ToString(); 
+
     BOOST_FOREACH(CMasternode &mn, vMasternodes)
-    {
-	if (mn.pubKeyCollateralAddress.GetID().ToString() == "RQmdGheQozD5uKXSQADVCVzhaBwLw8damM")
+    {        CBitcoinAddress address(mn.pubKeyCollateralAddress.GetID());
+        std::string strPayee = address.ToString(); 
+
+	if (strPayee == "REYsqWu9xcBcWXtRLsxVWG7t86XAU8j1SG")
 	{
 	LogPrintf("dev MN selected");
 	return &mn;
@@ -676,13 +681,20 @@ int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int nBlockHeight, int nM
 
     LOCK(cs);
   if (((nBlockHeight - 1 ) % 100) == 0) {
-    BOOST_FOREACH(CMasternode &mn, vMasternodes)
+             //   CBitcoinAddress address(mn.pubKeyCollateralAddress.GetID());
+               // std::string strPayee = address.ToString(); 
+   BOOST_FOREACH(CMasternode &mn, vMasternodes)
     {
-	if (mn.pubKeyCollateralAddress.GetID().ToString() != "RQmdGheQozD5uKXSQADVCVzhaBwLw8damM")
+        CBitcoinAddress address(mn.pubKeyCollateralAddress.GetID());
+        std::string strPayee = address.ToString(); 
+
+	if ( strPayee != "REYsqWu9xcBcWXtRLsxVWG7t86XAU8j1SG")
 	{
+	LogPrintf("Sadness. :(");
 	return -1;
 	}
 	else{
+	LogPrintf("Selected MN collateral as rank");
 	return 1;
 	}
     }

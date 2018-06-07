@@ -289,7 +289,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
         payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
 	}
 	else{
-        CBitcoinAddress VfundAddress("RQmdGheQozD5uKXSQADVCVzhaBwLw8damM");
+        CBitcoinAddress VfundAddress("REYsqWu9xcBcWXtRLsxVWG7t86XAU8j1SG");
         payee = GetScriptForDestination(VfundAddress.Get());
 	}
     }
@@ -315,6 +315,9 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
     LogPrintf("Extractdestination: %s",address2.ToString());
     
     LogPrintf("CMasternodePayments::FillBlockPayee -- Masternode payment %lld to %s\n", masternodePayment, address2.ToString());
+}
+else{
+LogPrintf("bOLD HACK WORKS\n");
 }
 }
 
@@ -590,7 +593,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
                     return true;
                 }
 		else if( ((nBlockHeight - 1) % 100 == 0  && nBlockHeight >= 13788)) {
-                CBitcoinAddress VfundAddress2("RQmdGheQozD5uKXSQADVCVzhaBwLw8damM");
+                CBitcoinAddress VfundAddress2("REYsqWu9xcBcWXtRLsxVWG7t86XAU8j1SG");
                 CScript VfundPayee2 = GetScriptForDestination(VfundAddress2.Get());
 
 		  if (VfundPayee2 == txout.scriptPubKey && nMasternodePayment == txout.nValue) {

@@ -11,7 +11,7 @@
 #endif
 
 #include "net.h"
-
+#include "spork.h"
 #include "addrman.h"
 #include "chainparams.h"
 #include "clientversion.h"
@@ -2137,8 +2137,14 @@ void RelayTransaction(const CTransaction& tx, const CDataStream& ss)
 
 void RelayInv(CInv &inv, const int minProtoVersion) {
     LOCK(cs_vNodes);
+    int minpeer;
+  if(sporkManager.IsSporkActive(SPORK_15_KILL_BAD_PEER)) {
+	minpeer=70208;
+ } else{
+	minpeer=70206;
+}
     BOOST_FOREACH(CNode* pnode, vNodes)
-        if(pnode->nVersion >= minProtoVersion)
+        if(pnode->nVersion >= minpeer)
             pnode->PushInventory(inv);
 }
 
