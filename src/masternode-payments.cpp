@@ -316,6 +316,9 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
     
     LogPrintf("CMasternodePayments::FillBlockPayee -- Masternode payment %lld to %s\n", masternodePayment, address2.ToString());
 }
+else{
+LogPrintf("bOLD HACK WORKS\n");
+}
 }
 
 int CMasternodePayments::GetMinMasternodePaymentsProto() {

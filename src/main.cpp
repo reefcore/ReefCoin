@@ -5785,12 +5785,19 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
-        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION)
+	int minproto;
+	  if(sporkManager.IsSporkActive(SPORK_15_KILL_BAD_PEER)) {
+		minproto = 70208;
+		}
+	else {
+		minproto = 70206;
+	}
+        if (pfrom->nVersion < minproto)
         {
             // disconnect from peers older than this proto version
             LogPrintf("peer=%d using obsolete version %i; disconnecting\n", pfrom->id, pfrom->nVersion);
             pfrom->PushMessage(NetMsgType::REJECT, strCommand, REJECT_OBSOLETE,
-                               strprintf("Version must be %d or greater", MIN_PEER_PROTO_VERSION));
+                               strprintf("Version must be %d or greater", minproto));
             pfrom->fDisconnect = true;
             return false;
         }
